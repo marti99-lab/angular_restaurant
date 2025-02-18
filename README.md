@@ -1,15 +1,16 @@
 # angular_restaurant
 The Restaurant Booking App is a web application built with Angular for the front end and a robust backend to handle reservations efficiently. 
+We will be using MongoDB here as a database.
 
-# Schritt 1
-# Starte ein Repository auf GitHub
-# Angular-App direkt im geklonten Repository erzeugen
+# Step 1
+# Start a Repository on GitHub  
+# Create an Angular app directly in the cloned repository  
 ng new .ng 
 ng new angular_restaurant --directory .
-# Testen ob die App funktioniert
+# Test if the app is working  
 ng serve
 
-# Schritt 2
+# Step 2
 Core Features
 
 Table Booking System – Users can pick a date, time, and number of guests.
@@ -80,14 +81,26 @@ angular_restaurant/
 │── package.json                   # Dependencies
 │── README.md                      # Documentation
 
-# Schritt 3
-# Componenten erstellen 
+backend/
+│── models/        # Database Schemas
+│   ├── booking.model.js  # Booking Schema
+│── routes/        # API Endpoints
+│   ├── booking.routes.js  # Routes for handling bookings
+│── config/        # Configuration Files
+│   ├── db.js  # Database Connection
+│── server.js      # Main Backend Server
+│── .env           # Environment Variables
+│── package.json   # Node.js Package File
+
+
+# Step 3
+# Create Components  
 
 ng g c components/navbar
 ng g c components/footer
 ng g c components/table-card
 
-# Hauptseiten erstellen
+# Create Main Pages  
 
 ng g c pages/home
 ng g c pages/booking
@@ -95,8 +108,8 @@ ng g c pages/admin-dashboard
 ng g c pages/login
 ng g c pages/register
 
-# Schritt 4
-# Routing erstellen
+# Step 4
+# Set Up Routing  
 
 add 
    src/app/app.module.ts
@@ -117,7 +130,7 @@ change angular.json from ("schematics": {},) to
         }
       },
 
-# Schritt 5
+# Step 5
 # Building the first Page Home Page
 
 with coding on the home.component
@@ -129,14 +142,40 @@ Theme: soft pastel versions:
     🌿 Pastel Green (#A8D5BA) → Fresh & calming
     🎨 Soft Gray (#F5F5F5) → Neutral background
 
-# Schritt 6
-#  Building the Navbar and the Footer
+# Step 6
+# Building the Navbar and the Footer
 
-adding to the ts, html and css in
+Add to the ts, html and css in
 navbar.component & footer.component
 
-# Schritt 7
+# Step 7
 # Create the Booking Form Structure
 
 modify booking.component
+
+# Step 8
+# Implement Form Validation & UX improvements
+
+Add Form Controls & Validation
+
+# Step 9
+# Create the Backend (Initialize a Node.js Backend and MongoDB)
+
+Create the Backend Folder in the folder we run:
+npm init -y
+npm install express mongoose cors dotenv
+mkdir models, routes, config
+touch server.js .env
+
+# Inside .env, add the MongoDB connection string:
+mongodb://localhost:27017
+
+# Set Up MongoDB
+node backend/mongodb_playground.js
+
+
+# Step 10 
+# Create the Booking Service in Angular
+
+ng g s services/booking
 

@@ -1,46 +1,69 @@
 .booking {
-    max-width: 600px;
-    margin: 4.5rem auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .booking h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-  }
-  
-  .booking-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .booking-form label {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: left;
-    display: block;
-  }
-  
-  .booking-form input,
-  .booking-form select {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    background: var(--background-color);
-    color: var(--text-color);
-  }
-  
-  .booking-form button {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
+  max-width: 600px;
+  margin: 4.5rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.booking h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking-form label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: border 0.3s ease-in-out;
+}
+
+.booking-form input.ng-invalid.ng-touched,
+.booking-form select.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.booking-form button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.booking-form button:hover {
+  background: #EDD3A8;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
