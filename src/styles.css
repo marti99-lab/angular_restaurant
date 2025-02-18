@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+/* 🌿🍋 Pastel Lime & Lemon Theme */
+:root {
+  --primary-color: #A8D5BA;  /* Pastel Green */
+  --secondary-color: #FAE5C3;  /* Pastel Yellow */
+  --background-color: #F5F5F5;  /* Soft Gray */
+  --text-color: #444;  /* Slightly darker gray for readability */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  padding-top: 4.5rem;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 100vw;
+  z-index: 1000;
+}
+
+.btn {
+  background: var(--secondary-color);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #EDD3A8;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 2rem;
+  background: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+}

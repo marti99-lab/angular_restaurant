@@ -1,0 +1,28 @@
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .footer-links li a:hover {
+    text-decoration: underline;
+  }
+  

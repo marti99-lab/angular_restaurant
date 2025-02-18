@@ -3,7 +3,6 @@ The Restaurant Booking App is a web application built with Angular for the front
 
 # Schritt 1
 # Starte ein Repository auf GitHub
-npm install -g @angular/cli
 # Angular-App direkt im geklonten Repository erzeugen
 ng new .ng 
 ng new angular_restaurant --directory .
@@ -117,4 +116,22 @@ change angular.json from ("schematics": {},) to
           "routing": true
         }
       },
+
+# Schritt 5
+# Building the first Page Home Page
+
+with coding on the home.component
+About the CSS using this style:
+
+Theme: soft pastel versions:
+
+    🍋 Pastel Yellow (#FAE5C3) → Warm & inviting
+    🌿 Pastel Green (#A8D5BA) → Fresh & calming
+    🎨 Soft Gray (#F5F5F5) → Neutral background
+
+# Schritt 6
+#  Building the Navbar and the Footer
+
+adding to the ts, html and css in
+navbar.component & footer.component
 
