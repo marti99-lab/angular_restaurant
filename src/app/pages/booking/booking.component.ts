@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-booking',
-  imports: [],
   templateUrl: './booking.component.html',
-  styleUrl: './booking.component.css'
+  styleUrls: ['./booking.component.css'],
+  standalone: true
 })
 export class BookingComponent {
-
+  handleSubmit(event: Event) {
+    event.preventDefault();
+    alert('Your reservation has been submitted!');
+  }
 }

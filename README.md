@@ -135,3 +135,8 @@ Theme: soft pastel versions:
 adding to the ts, html and css in
 navbar.component & footer.component
 
+# Schritt 7
+# Create the Booking Form Structure
+
+modify booking.component
+
