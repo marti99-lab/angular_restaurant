@@ -188,3 +188,8 @@ ng g s services/booking
 
 Modify the Backend API
 ng g c pages/my-bookings --standalone
+
+# Step 12
+# Admin Panel Implementation
+
+ng g c pages/admin-dashboard --standalone

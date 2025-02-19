@@ -23,10 +23,10 @@ export class MyBookingsComponent implements OnInit {
     this.bookingService.getUserBookings(this.customerName).subscribe(
       (data) => {
         this.bookings = data;
-        console.log("📌 User Bookings:", this.bookings);
+        console.log("User Bookings:", this.bookings);
       },
       (error) => {
-        console.error("❌ Error fetching bookings:", error);
+        console.error("Error fetching bookings:", error);
       }
     );
   }
