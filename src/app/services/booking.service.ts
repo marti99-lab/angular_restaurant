@@ -10,9 +10,11 @@ export class BookingService {
 
   constructor(private http: HttpClient) {}
 
-  // Add a new booking
+  // Add a new booking with headers
   addBooking(bookingData: any): Observable<any> {
-    return this.http.post(this.apiUrl, bookingData);
+    return this.http.post(this.apiUrl, bookingData, {
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   // Get all bookings (for Admin Panel)
@@ -24,5 +26,12 @@ export class BookingService {
   getUserBookings(customerName: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/${customerName}`);
   }
-}
 
+  updateBookingStatus(bookingId: string, status: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${bookingId}`, { status });
+  }
+
+  deleteBooking(bookingId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${bookingId}`);
+  }
+}

@@ -8,12 +8,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, // Default Route
+  { path: '', component: HomeComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'admin', component: AdminDashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' } // Redirect unknown paths to Home
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

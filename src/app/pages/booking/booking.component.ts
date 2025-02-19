@@ -18,7 +18,6 @@ export class BookingComponent {
     guests: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(10)]),
   });
 
-
   dateValidator(control: AbstractControl) {
     if (!control.value) return { required: true };
     const selectedDate = new Date(control.value);
@@ -27,40 +26,44 @@ export class BookingComponent {
     return selectedDate >= today ? null : { pastDate: true };
   }
 
-  get customerName() { return this.bookingForm.get('customerName'); }  // ✅ Fix added
+  get customerName() { return this.bookingForm.get('customerName'); }
   get date() { return this.bookingForm.get('date'); }
   get time() { return this.bookingForm.get('time'); }
   get guests() { return this.bookingForm.get('guests'); }
-  
 
   constructor(private bookingService: BookingService) {}
 
   handleSubmit() {
     console.log("🔍 Debug: handleSubmit() was triggered.");  
-  
+
     if (!this.bookingForm.valid) {
       console.warn("⚠️ Form is invalid, submission blocked.");
-  
-      // ✅ Log each field's error state
+
       console.log("Customer Name Errors:", this.bookingForm.get('customerName')?.errors);
       console.log("Date Errors:", this.bookingForm.get('date')?.errors);
       console.log("Time Errors:", this.bookingForm.get('time')?.errors);
       console.log("Guests Errors:", this.bookingForm.get('guests')?.errors);
-      
+
       alert("⚠️ Please fill in all fields correctly.");
-      return;  // Stop execution if the form is invalid
+      return;
     }
-  
-    console.log("✅ Form is valid, submitting...");
-    console.log("📌 Form Data:", this.bookingForm.value);
-  
-    this.bookingService.addBooking(this.bookingForm.value).subscribe(response => {
-      console.log("✅ Booking response:", response);
-      alert('Booking Successful!');
-      this.bookingForm.reset();
-    }, error => {
-      console.error("❌ Booking failed:", error);
-      alert('Booking failed. Please try again.');
+
+    console.log("Form is valid, submitting...");
+    console.log("Form Data:", this.bookingForm.value);
+
+    this.bookingService.addBooking(this.bookingForm.value).subscribe({
+      next: (response) => {
+        console.log("Booking response:", response);
+        alert('Booking Successful!');
+        this.bookingForm.reset();
+      },
+      error: (error) => {
+        console.error("Booking failed:", error);
+        alert('Booking failed. Please try again.');
+      },
+      complete: () => {
+        console.log("Booking request completed.");
+      }
     });
-  }  
-}  
+  }
+}

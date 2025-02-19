@@ -1,1 +1,33 @@
-<p>admin-dashboard works!</p>
+<h2>Admin Panel - Manage Bookings</h2>
+
+<table *ngIf="bookings.length > 0; else noBookings">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Guests</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <td>{{ booking.customerName }}</td>
+      <td>{{ booking.date }}</td>
+      <td>{{ booking.time }}</td>
+      <td>{{ booking.guests }}</td>
+      <td>{{ booking.status }}</td>
+      <td>
+        <button *ngIf="booking.status === 'pending'" (click)="approveBooking(booking._id)">Approve</button>
+        <button *ngIf="booking.status === 'pending'" (click)="rejectBooking(booking._id)">Reject</button>
+        <button class="delete" (click)="deleteBooking(booking._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noBookings>
+  <p>No bookings available.</p>
+</ng-template>
+
