@@ -33,4 +33,15 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+// Get bookings for a specific user
+router.get("/:customerName", async (req, res) => {
+    try {
+        const customerName = req.params.customerName;
+        const bookings = await Booking.find({ customerName });
+        res.json(bookings);
+    } catch (err) {
+        res.status(500).json({ message: "Error fetching bookings" });
+    }
+});
+
 module.exports = router;
