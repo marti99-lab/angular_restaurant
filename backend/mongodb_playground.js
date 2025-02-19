@@ -1,17 +1,34 @@
-// Use the correct database
-use('restaurantDB');
+// Import MongoDB client
+const { MongoClient } = require("mongodb");
 
-// Create a `bookings` collection (if it doesn't exist) and insert a sample booking.
-db.getCollection('bookings').insertOne({
-    customerName: "Test User",
-    date: "2025-02-18",
-    time: "19:00",
-    guests: 2,
-    status: "confirmed"
-});
+// Define the MongoDB connection URI
+const uri = "mongodb://localhost:27017";
 
-// Verify if the collection exists
-db.getCollectionNames();
+// Create a new MongoDB client
+const client = new MongoClient(uri);
 
-// Retrieve all bookings
-db.getCollection('bookings').find().pretty();
+async function run() {
+    try {
+        // Connect to MongoDB
+        await client.connect();
+        console.log("✅ Connected to MongoDB");
+
+        // Select the database
+        const database = client.db("restaurantDB");
+
+        // Select the collection
+        const bookings = database.collection("bookings");
+
+        // Fetch all bookings (Test Query)
+        const result = await bookings.find().toArray();
+        console.log("📌 Bookings Data:", result);
+    } catch (error) {
+        console.error("❌ Error connecting to MongoDB:", error);
+    } finally {
+        // Close the connection
+        await client.close();
+    }
+}
+
+// Run the function
+run();

@@ -46,6 +46,10 @@ angular_restaurant/
 │   │   │   │   ├── booking.component.ts
 │   │   │   │   ├── booking.component.html
 │   │   │   │   ├── booking.component.scss
+│   │   │   ├── my-bookings/
+│   │   │   │   ├── my-bookings.component.css
+│   │   │   │   ├── my-bookings.component.html
+│   │   │   │   ├── my-bookings.component.ts
 │   │   │   ├── admin-dashboard/ # Admin Panel for Owners
 │   │   │   │   ├── admin-dashboard.component.ts
 │   │   │   │   ├── admin-dashboard.component.html
@@ -179,3 +183,8 @@ node backend/mongodb_playground.js
 
 ng g s services/booking
 
+# Step 11
+# Display User Bookings
+
+Modify the Backend API
+ng g c pages/my-bookings --standalone
