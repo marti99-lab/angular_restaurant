@@ -20,7 +20,7 @@ Admin Dashboard – Restaurant owners can see and manage all reservations.
 Responsive Design – Works well on both mobile and desktop.
 
 File Structure
-
+```bash
 angular_restaurant/
 │── src/
 │   ├── app/
