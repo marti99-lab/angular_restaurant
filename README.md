@@ -95,7 +95,7 @@ backend/
 │── server.js      # Main Backend Server
 │── .env           # Environment Variables
 │── package.json   # Node.js Package File
-
+```
 
 # Step 3
 # Create Components  
