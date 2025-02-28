@@ -1,10 +1,11 @@
-require('dotenv').config();  // Load environment variables first
-
+require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
 const cors = require('cors');
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 
 // Allow CORS for frontend requests
 app.use(cors({ 
@@ -18,8 +19,9 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
-// Booking Routes
+// Routes
 app.use('/api/bookings', require('./routes/booking.routes'));
+app.use('/api/auth', require('./routes/auth.routes'));
 
 // Start Server
 const PORT = process.env.PORT || 5000;
